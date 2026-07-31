@@ -98,8 +98,8 @@ export default function CaseThreeWorkspace({
 
         {answerState === "incorrect" && (
           <div className="feedback error" role="alert">
-            가명이 일치하지 않습니다. SourceScope 결과에서 직접 운영한 표면웹
-            사이트를 찾고, 홍보 게시물 아래의 라이선스를 확인하세요.
+            가명이 일치하지 않습니다. 검색 결과의 출처와 운영 주체를 다시
+            구분해 보세요.
           </div>
         )}
 

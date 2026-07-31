@@ -120,9 +120,8 @@ export default function CaseFiveWorkspace({
 
         {answerState === "incorrect" && (
           <div className="feedback error" role="alert">
-            지갑 주소가 일치하지 않습니다. 1.00000000 BTC 결제의 입력
-            지갑들이 이전 거래의 Out으로 등장하는지 확인한 뒤, 분배
-            트랜잭션의 단일 입력 지갑까지 역추적하세요.
+            지갑 주소가 일치하지 않습니다. 단일 금액이 아닌 거래 사이의
+            자금 흐름을 다시 확인하세요.
           </div>
         )}
 

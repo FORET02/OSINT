@@ -119,9 +119,8 @@ export default function CaseSixWorkspace({
 
         {answerState === "incorrect" && (
           <div className="feedback error" role="alert">
-            구매자 명단이 일치하지 않습니다. 믹서 지갑으로 유입된 거래의
-            In 주소만 추출해 CSV의 지갑 주소와 교차 대조하고, 일치한
-            이름을 가나다순으로 다시 입력하세요.
+            구매자 명단이 일치하지 않습니다. 두 증거 자료의 공통 항목과
+            제출 순서를 다시 확인하세요.
           </div>
         )}
 

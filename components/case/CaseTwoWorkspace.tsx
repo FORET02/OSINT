@@ -98,8 +98,8 @@ export default function CaseTwoWorkspace({
 
         {answerState === "incorrect" && (
           <div className="feedback error" role="alert">
-            식별 값이 일치하지 않습니다. OnionScope 개발자 도구의 소스 코드를
-            다시 확인하세요.
+            식별 값이 일치하지 않습니다. 페이지가 불러온 자원과 실행 결과를
+            다시 분석하세요.
           </div>
         )}
 

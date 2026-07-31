@@ -98,9 +98,8 @@ export default function CaseFourWorkspace({
 
         {answerState === "incorrect" && (
           <div className="feedback error" role="alert">
-            실명이 일치하지 않습니다. 게시물 안의 비트코인 후원 주소를
-            너굴상점 입금 주소와 비교한 뒤, 일치한 작성자의 프로필을
-            확인하세요.
+            실명이 일치하지 않습니다. 유사 계정 사이의 공통 흔적과 프로필
+            정보를 다시 검토하세요.
           </div>
         )}
 

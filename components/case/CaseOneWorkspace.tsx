@@ -97,8 +97,8 @@ export default function CaseOneWorkspace({
 
         {answerState === "incorrect" && (
           <div className="feedback error" role="alert">
-            주소가 일치하지 않습니다. 후보 페이지의 상호와 상품 단서를 다시
-            확인하세요.
+            입력한 주소가 일치하지 않습니다. 수집한 후보와 페이지 내용을
+            다시 검토하세요.
           </div>
         )}
         {answerState === "correct" && (

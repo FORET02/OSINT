@@ -181,6 +181,58 @@ test("starts every question with all investigation tools closed", async () => {
   );
 });
 
+test("uses the unified investigation scenario without revealing the solution path", async () => {
+  const introSource = await readFile(
+    new URL("../components/case/CaseWorkspace.tsx", import.meta.url),
+    "utf8",
+  );
+  const dataSource = await readFile(
+    new URL("../data/case01.ts", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(introSource, /익명 네트워크와 암호화폐를/);
+  assert.match(introSource, /사건과\s*무관한 기록과 위장된 정보/);
+  assert.match(introSource, /불법 거래에 관여한 주요 인물들을 최종적으로/);
+  assert.doesNotMatch(introSource, /웹 추적 식별자|UTXO 흐름|교차 대조해 VIP/);
+
+  const hintBlocks = [
+    "ONE",
+    "TWO",
+    "THREE",
+    "FOUR",
+    "FIVE",
+    "SIX",
+  ].map((name) => {
+    const match = dataSource.match(
+      new RegExp(
+        `export const QUESTION_${name}_HINTS = \\[([\\s\\S]*?)\\];`,
+      ),
+    );
+    assert.ok(match, `QUESTION_${name}_HINTS must exist`);
+    return match[1];
+  });
+
+  const allHints = hintBlocks.join("\n");
+  assert.match(
+    hintBlocks[1],
+    /1번에서 확인한 공식 주소를 OnionScope로 연 상태에서 개발자 도구를 연결하세요/,
+  );
+  assert.match(
+    hintBlocks[1],
+    /Onion 코드를 자세히 살펴보세요/,
+  );
+  assert.match(
+    hintBlocks[1],
+    /소스 코드를 분석하여 식별 값을 찾으세요/,
+  );
+  assert.doesNotMatch(hintBlocks[1], /Console/);
+  assert.doesNotMatch(
+    allHints,
+    /vcfdov74ftugicb6|G-R4CC00N826|hjhjhjhj|김도현|raclog\.kr|1M9xX9cC3vV4bB6nN8mM9qQ2kMabcDefG|10\.50000000|고은지|김현준|전소훈/,
+  );
+});
+
 test("question five exposes the shared blockchain log through the supplied Drive link", async () => {
   const evidenceSource = await readFile(
     new URL(
